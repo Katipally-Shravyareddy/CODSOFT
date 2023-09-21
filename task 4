@@ -1,0 +1,41 @@
+#rock-paper-scissors-game
+
+import tkinter as tk
+import random
+
+# Function to determine the winner
+def determine_winner(player_choice):
+    choices = ["Rock", "Paper", "Scissors"]
+    computer_choice = random.choice(choices)
+    
+    if player_choice == computer_choice:
+        result_label.config(text=f"It's a tie! Computer chose {computer_choice}")
+    elif (
+        (player_choice == "Rock" and computer_choice == "Scissors") or
+        (player_choice == "Paper" and computer_choice == "Rock") or
+        (player_choice == "Scissors" and computer_choice == "Paper")
+    ):
+        result_label.config(text=f"You win! Computer chose {computer_choice}")
+    else:
+        result_label.config(text=f"You lose! Computer chose {computer_choice}")
+
+# Create the main window
+window = tk.Tk()
+window.title("Rock, Paper, Scissors Game")
+
+# Create labels and buttons
+instruction_label = tk.Label(window, text="Choose Rock, Paper, or Scissors:")
+rock_button = tk.Button(window, text="Rock", command=lambda: determine_winner("Rock"))
+paper_button = tk.Button(window, text="Paper", command=lambda: determine_winner("Paper"))
+scissors_button = tk.Button(window, text="Scissors", command=lambda: determine_winner("Scissors"))
+result_label = tk.Label(window, text="")
+
+# Pack widgets
+instruction_label.pack()
+rock_button.pack()
+paper_button.pack()
+scissors_button.pack()
+result_label.pack()
+
+# Start the Tkinter main loop
+window.mainloop()

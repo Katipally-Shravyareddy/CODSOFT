@@ -1,0 +1,36 @@
+# contact Book
+
+names = []
+phone_numbers = []
+email_ids=[]
+addresses=[]
+num = 3
+
+
+for i in range(num):
+    name = input("Name: ")
+    phone_number = input("Phone Number: ")
+    email_id = input("email id:")
+    address = input("address:")
+
+    names.append(name)
+    phone_numbers.append(phone_number)
+    email_id.append(email_id)
+    address.append(address)
+
+print("\nName\t\t\tPhone Number\nemail id\naddress\n")
+
+for i in range(num):
+    print("{}\t\t\t{}".format(names[i], phone_numbers[i], email_id[i], address[i]))
+
+search_term = input("\nEnter search term: ")
+
+print("Search result:")
+
+if search_term in names:
+    index = names.index(search_term)
+    phone_number = phone_numbers[index]
+    print("Name: {}, Phone Number: {}, Email Id: {}, Address: {}".format(search_term, phone_number))
+
+else:
+    print("Name Not Found")
